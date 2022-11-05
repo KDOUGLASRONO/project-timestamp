@@ -30,7 +30,8 @@ app.get("/api/:date",(req,res)=>{
 })
 
 //api/2015-12-25
-app.get("/api/:date",(req,res)=>{
+app.get("/api/:date_string",(req,res)=>{
+  var dateString = req.params.date_string;
   res.json({error:"Invalid Date"});
 });
 

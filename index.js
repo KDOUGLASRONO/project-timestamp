@@ -30,8 +30,8 @@ app.get("/api/:date",(req,res)=>{
 })
 
 //api/2015-12-25
-app.get("/api/2015-1-25",(req,res)=>{
-  res.json({date:x});
+app.get("/api/:date",(req,res)=>{
+  res.json({error:"Invalid Date"});
 });
 
 //

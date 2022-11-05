@@ -25,12 +25,12 @@ app.get("/api/hello", function (req, res) {
 });
 
 //api date 
-app.get("/api/2015-12-25",(req,res)=>{
+app.get("/api/date",(req,res)=>{
   res.json({unix:Date.now(),utc:Date()});
 })
 
 //api/2015-12-25
-app.get("/api/date",(req,res)=>{
+app.get("/api/2015-12-25",(req,res)=>{
   res.json({date:x});
 })
 

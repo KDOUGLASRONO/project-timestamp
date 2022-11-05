@@ -1,7 +1,7 @@
 {
   "name": "fcc-api-projects-boilerplate",
   "version": "0.0.1",
-  "description": "An FCC Backend Challenge",
+  "description": "An FCC Backend Challenge solved by douglas for rhon",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
@@ -9,7 +9,7 @@
   "dependencies": {
     "cors": "^2.8.0",
     "dotenv": "^16.0.3",
-    "express": "^4.12.4",
+    "express": "^4.18.2",
     "mongodb": "^4.11.0",
     "mongoose": "^6.7.1"
   },

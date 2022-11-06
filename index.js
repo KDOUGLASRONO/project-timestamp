@@ -36,6 +36,7 @@ app.get("/api/:date_string",(req,res)=>{
   console.log(dateString)
   if(dateString.split("-").length>1){
     res.json({unix:Date.parse(dateString)});
+    res.json({unix:Date.parse(dateString),utc:Date(dateString)});
   }
   else{
     res.json({error:"Invalid Date"});

@@ -32,7 +32,9 @@ app.get("/api/date",(req,res)=>{
 
 //api/2015-12-25
 app.get("/api",(req,res)=>{
-  res.json({unix:Date.now()});
+  var milliseconds = Number(Date.now());
+  var dates = new Date(milliseconds)
+  res.json({unix:Date.now(),utc:dates.toUTCString()});
 })
 app.get("/api/:date_string",(req,res)=>{
   var dateString = req.params.date_string;

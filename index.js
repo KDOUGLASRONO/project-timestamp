@@ -31,10 +31,15 @@ app.get("/api/date",(req,res)=>{
 })
 
 //api/2015-12-25
-app.get("/api/timestamp/:date_string",(req,res)=>{
+app.get("/api/:date_string",(req,res)=>{
   var dateString = req.params.date_string;
-  console.log(date_string)
-  res.json({error:"Invalid Date"});
+  console.log(dateString)
+  if(dateString.split("-").length>1){
+    res.json({unix:Date.parse(dateString)});
+  }
+  else{
+    res.json({error:"Invalid Date"});
+  }
 });
 
 //

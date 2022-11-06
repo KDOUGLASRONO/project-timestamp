@@ -36,7 +36,7 @@ app.get("/api/:date_string",(req,res)=>{
   console.log(dateString)
   if(dateString.split("-").length>1){
     res.json({unix:Date.parse(dateString)});
-    //res.json({unix:Date.parse(dateString),utc:Date(dateString)});
+    res.json({utc:Date(Number(dateString)).toUTCString()});
   }
   else if(!isNaN(dateString)){
     console.log(dateString);

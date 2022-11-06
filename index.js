@@ -36,7 +36,13 @@ app.get("/api/:date_string",(req,res)=>{
   console.log(dateString)
   if(dateString.split("-").length>1){
     res.json({unix:Date.parse(dateString)});
-    res.json({unix:Date.parse(dateString),utc:Date(dateString)});
+    //res.json({unix:Date.parse(dateString),utc:Date(dateString)});
+  }
+  else if(!isNaN(dateString)){
+    console.log(dateString);
+    var date = new Date(Number(dateString));
+    console.log("date: ",date);
+    res.json({unix:dateString,utc:date.toString()});
   }
   else{
     res.json({error:"Invalid Date"});

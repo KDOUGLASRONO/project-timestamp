@@ -42,7 +42,7 @@ app.get("/api/:date_string",(req,res)=>{
     console.log(dateString);
     var date = new Date(Number(dateString));
     console.log("date: ",date);
-    res.json({unix:dateString,utc:date.toUTCString()});
+    res.json({unix:Number(dateString),utc:date.toUTCString()});
   }
   else{
     res.json({error:"Invalid Date"});

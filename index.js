@@ -31,6 +31,9 @@ app.get("/api/date",(req,res)=>{
 })
 
 //api/2015-12-25
+app.get("/api",(req,res)=>{
+  res.json({unix:Date.now()});
+})
 app.get("/api/:date_string",(req,res)=>{
   var dateString = req.params.date_string;
   console.log(dateString)

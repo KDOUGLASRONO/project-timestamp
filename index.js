@@ -25,7 +25,7 @@ app.get("/api/hello", function (req, res) {
 });
 
 //api date 
-app.get("/api/:date",(req,res)=>{
+app.get("/api/date",(req,res)=>{
   var resDate = new Date();
   res.json({ unix: resDate.valueOf(), utc: resDate.toUTCString() });
 })
@@ -33,6 +33,7 @@ app.get("/api/:date",(req,res)=>{
 //api/2015-12-25
 app.get("/api/timestamp/:date_string",(req,res)=>{
   var dateString = req.params.date_string;
+  console.log(date_string)
   res.json({error:"Invalid Date"});
 });
 

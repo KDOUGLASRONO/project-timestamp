@@ -33,9 +33,36 @@ app.get("/api/date",(req,res)=>{
 //api/2015-12-25
 app.get("/api",(req,res)=>{
   var milliseconds = Number(Date.now());
-  var dates = new Date(milliseconds)
-  res.json({unix:Date.now(),utc:dates.toUTCString()});
+  var dates = new Date(milliseconds);
+  res.json({unix:Date.now(),utc:dates.toUTCString()})
+});
+
+  //another approach
+  app.get("/api/:date_string",(req,res)=>{
+    var dateString = req.params.date_string;
+    console.log("input ",dateString);
+    //var intdate = Number(dateStrin
+    var milliseconds = Date.parse(dateString);
+    var dates = new Date(Number(milliseconds));
+    if(dates!="Invalid Date"){
+      console.log(dates);
+      res.json({unix:Date.parse(dateString),utc:dates.toUTCString()});
+      //res.json({utc:dates.toUTCString()});
+    }
+    else{
+      console.log("two: ",Number(dateString));
+      var date = new Date(Number(dateString));
+      console.log("check: ",date);
+      if(date == "Invalid Date"){
+        res.json({error: "Invalid Date"});
+      }
+      else{
+        res.json({unix:Number(dateString),utc:date.toUTCString()});
+      }
+    }
+    
 })
+/*
 app.get("/api/:date_string",(req,res)=>{
   var dateString = req.params.date_string;
   console.log("input ",dateString);
@@ -59,7 +86,7 @@ app.get("/api/:date_string",(req,res)=>{
     res.json({error:"Invalid Date"});
   }
 });
-
+*/
 //
 app.get("/api/1451001600000",(req,res)=>{
   res.json({unix:"1451001600000",utc:"Fri, 25 Dec 2015 00:00:00 GMT"});

@@ -38,15 +38,19 @@ app.get("/api",(req,res)=>{
 })
 app.get("/api/:date_string",(req,res)=>{
   var dateString = req.params.date_string;
-  console.log(dateString)
-  if(dateString.split("-").length>1){
+  console.log("input ",dateString);
+  //var intdate = Number(dateString);
+  if(dateString.split("-").length>2){
+    console.log("1st: ", dateString);
     var milliseconds = Date.parse(dateString);
     var dates = new Date(Number(milliseconds));
     res.json({unix:Date.parse(dateString),utc:dates.toUTCString()});
     //res.json({utc:dates.toUTCString()});
   }
-  else if(!isNaN(dateString)){
-    console.log(dateString);
+
+  else if(!isNaN(Number(dateString))){
+    console.log("one: ",dateString);
+    console.log("two: ",Number(dateString));
     var date = new Date(Number(dateString));
     console.log("date: ",date);
     res.json({unix:Number(dateString),utc:date.toUTCString()});
